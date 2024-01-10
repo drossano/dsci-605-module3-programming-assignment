@@ -1,0 +1,68 @@
+---
+title: 'Create a profesional R Markdown file about data wrangling with data provided'
+output:
+  pdf_document: default
+  html_notebook: default
+---
+
+This lab is preconfigured to include all dependencies (libraries, packages, and datasets) you'll need to complete your work in RStudio. You can practice, run test cases, and work on assignments from your browser.
+
+# Assignment Overview
+The purpose of this lab is to assess your proficiency in creating an R Markdown file and using knit. The data for this lab can be found in Module3 "Salaries.csv".
+
+## IMPORTANT NOTE: 
+This lab is hosted in an iframe that facilitates lab management features but consequently will prevent Knitting to HTML or Preview Notebook working by default. However, you can still Knit your files in lab by taking the following steps. Please be sure to submit your final files in .html and .Rmd formats within the indicated Module folder.
+
+*Step 1: Go to the "Help" icon in your lab toolbar (top right corner). 
+*Step 2: Select the "Switch Back to the Old Experience" hyperlink. 
+*Step 3: Knit your files to HTML or Preview Notebook. You should now be able to load and preview them in your lab appropriately. 
+*Step 4: Relaunch your lab from your Programming Assignment item, which will enable the "Submit Assignment" button and lab toolbar again. 
+
+More details can be found in this [RStudio Lab - In-Browser Option Reading](https://www.coursera.org/learn/ball-state-university-data-visualization/supplement/E9jjS/rstudio-lab-in-browser-option) 
+
+## Assignment Instructions
+* **In the R Markdown header:**  
++ Please set the output file format as “html_document”. For example: output: html_document. 
++ Please set the title “The basic R Markdown”. 
++ Please include your name and the date for the lab.
+
+* **In the R Markdown text section**:
+Please have “Data description” and “Data wrangling” two paragraphs.  
++ In “Data description” part, please have “Data description” as Header 1. Then describe the data for all variables using “Unordered list”. For example:  
+
+#### Data description 
+Your text for data information. 
+- Variable 1: Your description 
+
+* **In the Data wrangling part**: please simply describe your data wrangling work using texts and steps using “Unordered list”. For example:  
+
+#### Data wrangling 
+
+Your text for data wrangling information. 
+- Step 1: Your description 
+
+* **In the Data wrangling part**: Please include a code chunk of the data wrangling following the steps. In the code chunk:
++ You can copy all the code you have done in prior Module lessons
++ Please hide the printed result of the information about all the packages required. 
++ Please hide the printed result of the information about “Salaries” 
++ Please show the code. 
+* Please name your file as Yourname_R Markdown file.RMD 
+* Please Knit your R Markdown file into HTML and make sure both your .html and .Rmd files are saved under your Module3 folder. 
+* Finally, please select the blue "Submit Assignment" button in the upper toolbar of your lab. If you do not see this button for any reason, please relaunch your lab from the Programming Assignment item and it will appear again.
+
+
+### Grading Criteria
+This week, your code will be autograded on the following elements:
+
+1. Your code should match the sequential operations required by the instructor.  
+2. Your code should be run successfully.  
+3. You should provide comments for each step. 
+4. You should submit the files with extension of .html and .Rmd in your Module3 folder.
+
+
+### How to Submit Your Work for a Grade
+* If you’re working in the In-Browser RStudio: When you’ve completed your lab, please be sure that your submit your .html and .Rmd files in the Module 3 folder in your lab. From there use the “Submit Assignment” button in your lab’s upper toolbar to submit your code for autograding. 
+
+* If you completed your work in a local Desktop version of RStudio: Upload your local .html and .Rmd file to the Module 3 folder for autograding using the “Upload -> Choose File” button in your RStudio “Files” tab. (Ex: Your target directory for the upload should be “~/Module3”)
+
+For both options, you’ll see a final grade and feedback for your work in the Programming Assignment item you launched this lab from. Once you’ve completed your submission and received a passing score, you can close this RStudio Lab.
