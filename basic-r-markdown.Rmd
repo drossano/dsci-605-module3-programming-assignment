@@ -9,12 +9,20 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## R Markdown
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+# Data Description
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
 
+The dataset consists of the following information collected from 397 collegiate professors in the US from 2008 to 2009:
+
+
+* Rank: Professor's rank of either assistant professor, associate professor, or professor.
+* Discipline: The department that the professor works in, either applied or theoretical
+* yrs.since.phd: Number of years sisnce the professor has obtained their PhD
+* yrs.service:Number of year the professor has served the department and/or university
+* sex: Professors sex of either male or female
+* salary: Professor's nine-month salary (USD)
+# Data Wrangling
 ```{r cars}
 summary(cars)
 ```
