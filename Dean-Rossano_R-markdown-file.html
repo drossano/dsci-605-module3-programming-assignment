@@ -362,18 +362,18 @@ display: none;
 <p>The dataset consists of the following information collected from 397
 collegiate professors in the US from 2008 to 2009:</p>
 <ul>
-<li>Rank: Professor’s rank of either assistant professor, associate
-professor, or professor</li>
-<li>Discipline: The department that the professor works in, either
-applied or theoretical</li>
-<li>yrs.since.phd: Number of years sisnce the professor has obtained
-their PhD</li>
-<li>yrs.service:Number of year the professor has served the department
-and/or university</li>
-<li>sex: Professors sex of either male or female</li>
-<li>salary: Professor’s nine-month salary (USD) # Data Wrangling The
-following steps and code were used to manipulate the salaries
-dataset:</li>
+<li>Variable 1: Rank - Professor’s rank of either assistant professor,
+associate professor, or professor</li>
+<li>Variable 2: Discipline - The department that the professor works in,
+either applied or theoretical</li>
+<li>Variable 3: yrs.since.phd - Number of years sisnce the professor has
+obtained their PhD</li>
+<li>Variable 4: yrs.service - Number of year the professor has served
+the department and/or university</li>
+<li>Variable 5: sex - Professors sex of either male or female</li>
+<li>Variable 6: salary - Professor’s nine-month salary (USD) # Data
+Wrangling The following steps and code were used to manipulate the
+salaries dataset:</li>
 <li>Step 1: Load the tidyverse package</li>
 <li>Step 2: Set the working directory to the location of Salaries.csv
 and load Salaries.csv</li>
@@ -398,18 +398,59 @@ salaries = read_csv(&quot;Salaries.csv&quot;)
 
 # select the columns of rank, discipline, sex and salary
 salaries %&gt;% 
-  select(rank, discipline, sex, salary)
-
-# filter the rows where salary is not a missing value
+  select(rank, discipline, sex, salary)</code></pre>
+<pre><code>## # A tibble: 397 × 4
+##    rank      discipline sex    salary
+##    &lt;chr&gt;     &lt;chr&gt;      &lt;chr&gt;   &lt;dbl&gt;
+##  1 Prof      B          Male   139750
+##  2 Prof      B          Male   173200
+##  3 AsstProf  B          Male    79750
+##  4 Prof      B          Male   115000
+##  5 Prof      B          Male   141500
+##  6 AssocProf B          Male    97000
+##  7 Prof      B          Male   175000
+##  8 Prof      B          Male   147765
+##  9 Prof      B          Male   119250
+## 10 Prof      B          Female 129000
+## # ℹ 387 more rows</code></pre>
+<pre class="r"><code># filter the rows where salary is not a missing value
 salaries %&gt;%   
-  filter(!is.na(salary))
-
-# group based on rank, discipline and sex and tally count of rows
+  filter(!is.na(salary))</code></pre>
+<pre><code>## # A tibble: 397 × 6
+##    rank      discipline yrs.since.phd yrs.service sex    salary
+##    &lt;chr&gt;     &lt;chr&gt;              &lt;dbl&gt;       &lt;dbl&gt; &lt;chr&gt;   &lt;dbl&gt;
+##  1 Prof      B                     19          18 Male   139750
+##  2 Prof      B                     20          16 Male   173200
+##  3 AsstProf  B                      4           3 Male    79750
+##  4 Prof      B                     45          39 Male   115000
+##  5 Prof      B                     40          41 Male   141500
+##  6 AssocProf B                      6           6 Male    97000
+##  7 Prof      B                     30          23 Male   175000
+##  8 Prof      B                     45          45 Male   147765
+##  9 Prof      B                     21          20 Male   119250
+## 10 Prof      B                     18          18 Female 129000
+## # ℹ 387 more rows</code></pre>
+<pre class="r"><code># group based on rank, discipline and sex and tally count of rows
 salaries %&gt;% 
   group_by(rank, discipline, sex) %&gt;% 
-  count(rank, discipline, sex)
-
-# reshape table from long to wide based on sex column
+  count(rank, discipline, sex)</code></pre>
+<pre><code>## # A tibble: 12 × 4
+## # Groups:   rank, discipline, sex [12]
+##    rank      discipline sex        n
+##    &lt;chr&gt;     &lt;chr&gt;      &lt;chr&gt;  &lt;int&gt;
+##  1 AssocProf A          Female     4
+##  2 AssocProf A          Male      22
+##  3 AssocProf B          Female     6
+##  4 AssocProf B          Male      32
+##  5 AsstProf  A          Female     6
+##  6 AsstProf  A          Male      18
+##  7 AsstProf  B          Female     5
+##  8 AsstProf  B          Male      38
+##  9 Prof      A          Female     8
+## 10 Prof      A          Male     123
+## 11 Prof      B          Female    10
+## 12 Prof      B          Male     125</code></pre>
+<pre class="r"><code># reshape table from long to wide based on sex column
 wide &lt;- salaries %&gt;% 
   # remove duplicate entries
   unique() %&gt;% 

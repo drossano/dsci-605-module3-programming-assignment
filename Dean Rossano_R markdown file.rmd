@@ -16,12 +16,12 @@ knitr::opts_chunk$set(echo = TRUE)
 The dataset consists of the following information collected from 397 collegiate professors in the US from 2008 to 2009:
 
 
-* Rank: Professor's rank of either assistant professor, associate professor, or professor
-* Discipline: The department that the professor works in, either applied or theoretical
-* yrs.since.phd: Number of years sisnce the professor has obtained their PhD
-* yrs.service:Number of year the professor has served the department and/or university
-* sex: Professors sex of either male or female
-* salary: Professor's nine-month salary (USD)
+* Variable 1: Rank - Professor's rank of either assistant professor, associate professor, or professor
+* Variable 2: Discipline - The department that the professor works in, either applied or theoretical
+* Variable 3: yrs.since.phd - Number of years sisnce the professor has obtained their PhD
+* Variable 4: yrs.service - Number of year the professor has served the department and/or university
+* Variable 5: sex - Professors sex of either male or female
+* Variable 6: salary - Professor's nine-month salary (USD)
 # Data Wrangling
 The following steps and code were used to manipulate the salaries dataset:
 * Step 1: Load the tidyverse package
@@ -31,7 +31,7 @@ The following steps and code were used to manipulate the salaries dataset:
 * Step 5: Use group_by to group the data based on rank, discipline, and sex and then use count to tally the amount of rows
 * Step 6: Use mutate and spread to reshape the table from long to wide based on the sex column
 * step 7: Use gather to reshape the table back to a long shape.
-```{r eval=FALSE}
+```{r echo=TRUE, message=FALSE}
 # Add your code here for this assignment. 
 
 # load tidyverse package
