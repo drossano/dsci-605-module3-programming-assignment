@@ -16,23 +16,53 @@ knitr::opts_chunk$set(echo = TRUE)
 The dataset consists of the following information collected from 397 collegiate professors in the US from 2008 to 2009:
 
 
-* Rank: Professor's rank of either assistant professor, associate professor, or professor.
+* Rank: Professor's rank of either assistant professor, associate professor, or professor
 * Discipline: The department that the professor works in, either applied or theoretical
 * yrs.since.phd: Number of years sisnce the professor has obtained their PhD
 * yrs.service:Number of year the professor has served the department and/or university
 * sex: Professors sex of either male or female
 * salary: Professor's nine-month salary (USD)
 # Data Wrangling
-```{r cars}
-summary(cars)
+The following steps and code were used to manipulate the salaries dataset:
+* Step 1: Load the tidyverse package
+* Step 2: Set the working directory to the location of Salaries.csv and load Salaries.csv
+* Step 3: Use the select function to select the rank, discipline, sex, & salary columns
+* Step 4: Use the filter function to filter out the rows where salary is not a missing value
+* Step 5: Use group_by to group the data based on rank, discipline, and sex and then use count to tally the amount of rows
+* Step 6: Use mutate and spread to reshape the table from long to wide based on the sex column
+* step 7: Use gather to reshape the table back to a long shape.
+```{r eval=FALSE}
+# Add your code here for this assignment. 
+
+# load tidyverse package
+library(tidyverse)
+
+# set the working directory to Module 2 & load the Salaries.csv dataset
+setwd("Module3")
+salaries = read_csv("Salaries.csv")
+
+# select the columns of rank, discipline, sex and salary
+salaries %>% 
+  select(rank, discipline, sex, salary)
+
+# filter the rows where salary is not a missing value
+salaries %>%   
+  filter(!is.na(salary))
+
+# group based on rank, discipline and sex and tally count of rows
+salaries %>% 
+  group_by(rank, discipline, sex) %>% 
+  count(rank, discipline, sex)
+
+# reshape table from long to wide based on sex column
+wide <- salaries %>% 
+  # remove duplicate entries
+  unique() %>% 
+  mutate(sex_logical=TRUE) %>% 
+  spread(sex, sex_logical,fill = FALSE)
+
+# reshape the table from wide to long
+long <- wide %>% 
+  gather(sex,logical_value, (ncol(wide)-1):ncol(wide),na.rm = TRUE) %>% 
+  mutate(logical_value = NULL)
 ```
-
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
